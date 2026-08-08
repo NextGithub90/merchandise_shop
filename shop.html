@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — WOTAKU MART | Japanese Merchandise & Fashion</title>
+  <meta name="description"
+    content="Browse all Wotaku Mart products — anime figures, cosplay, acrylic standees, streetwear & Harajuku fashion from Wotaku Shop and mnd.id." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body class="shop-page">
+
+  <!-- Mobile Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Navigation Menu"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">WOTAKU <span class="red">MART</span></div>
+      <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-logo-link">
+        <img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="mobile-brand-logo" />
+        <span class="nav-jp">ウォタクショップ</span>
+      </a>
+      <a href="#mnd-section" class="mobile-logo-link">
+        <img src="assets/images/logo_mnd.png" alt="MND.ID" class="mobile-brand-logo" />
+        <span class="nav-jp">エムエヌディー</span>
+      </a>
+      <a href="#aikoku-section" class="mobile-logo-link">
+        <img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="mobile-brand-logo" />
+        <span class="nav-jp">アイコク</span>
+      </a>
+      <a href="index.html" class="mobile-nav-main">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Home
+      </a>
+      <a href="shop.html" class="mobile-nav-main active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+        Shop
+      </a>
+      <a href="contact.html" class="mobile-nav-main">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+        Contact
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Nav Left: Logo + Store logos -->
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Wotaku Mart Home">
+          <div class="logo-brand">WOTAKU <span class="red">MART</span></div>
+          <div class="logo-jp">ウォタクマート</div>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#wotaku-section" class="nav-logo-link">
+            <img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="nav-brand-logo" />
+          </a>
+          <a href="#mnd-section" class="nav-logo-link">
+            <img src="assets/images/logo_mnd.png" alt="MND.ID" class="nav-brand-logo" />
+          </a>
+          <a href="#aikoku-section" class="nav-logo-link">
+            <img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="nav-brand-logo" />
+          </a>
+        </nav>
+      </div>
+      <!-- Nav Right: Cart + Hamburger -->
+      <div class="nav-right">
+        <button class="nav-icon-btn" aria-label="Shopping cart" id="cartBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span>Cart</span>
+          <span class="cart-count" aria-label="0 items">0</span>
+        </button>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- ═══ MAIN SHOP CONTENT ═══ -->
+  <div class="shop-layout">
+
+    <!-- ─── SIDEBAR FILTERS ─── -->
+    <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
+      <div class="sidebar-inner">
+
+        <!-- Filter Header (mobile) -->
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Filter</h2>
+          <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close filters">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Store Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Store</h3>
+          <label class="filter-check">
+            <input type="radio" name="store" value="all" checked id="filterAll" />
+            <span class="check-label">All Stores</span>
+            <span class="check-count">24</span>
+          </label>
+          <label class="filter-check">
+            <input type="radio" name="store" value="wotaku" id="filterWotaku" />
+            <span class="check-label">Wotaku Shop</span>
+            <span class="check-count">10</span>
+          </label>
+          <label class="filter-check">
+            <input type="radio" name="store" value="mnd" id="filterMnd" />
+            <span class="check-label">mnd.id</span>
+            <span class="check-count">8</span>
+          </label>
+          <label class="filter-check">
+            <input type="radio" name="store" value="aikoku" id="filterAikoku" />
+            <span class="check-label">Aikoku</span>
+            <span class="check-count">6</span>
+          </label>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Category</h3>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="figure" id="catFigure" />
+            <span class="check-label">Figures</span>
+            <span class="check-count">4</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="cosplay" id="catCosplay" />
+            <span class="check-label">Cosplay</span>
+            <span class="check-count">3</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="acrylic" id="catAcrylic" />
+            <span class="check-label">Acrylic</span>
+            <span class="check-count">3</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="streetwear" id="catStreetwear" />
+            <span class="check-label">Streetwear</span>
+            <span class="check-count">3</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="harajuku" id="catHarajuku" />
+            <span class="check-label">Harajuku</span>
+            <span class="check-count">3</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="korean" id="catKorean" />
+            <span class="check-label">Korean Style</span>
+            <span class="check-count">2</span>
+          </label>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Price Range</h3>
+          <div class="price-range-wrap">
+            <input type="range" id="priceRange" min="0" max="1000000" step="10000" value="1000000"
+              class="price-slider" />
+            <div class="price-labels">
+              <span>Rp 0</span>
+              <span id="priceLabel">Rp 1.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group-title">Status</h3>
+          <label class="filter-check">
+            <input type="checkbox" name="status" value="new" id="statusNew" />
+            <span class="check-label">New Arrivals</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="status" value="sale" id="statusSale" />
+            <span class="check-label">On Sale</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="status" value="limited" id="statusLimited" />
+            <span class="check-label">Limited Edition</span>
+          </label>
+        </div>
+
+        <button class="filter-reset-btn" id="filterResetBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
+          Reset Filters
+        </button>
+
+      </div>
+    </aside>
+
+    <!-- ─── PRODUCTS MAIN AREA ─── -->
+    <main class="shop-main" id="shopMain">
+
+      <!-- Toolbar -->
+      <div class="shop-toolbar">
+        <div class="toolbar-left">
+          <button class="filter-toggle-btn" id="filterToggleBtn" aria-label="Toggle filters" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="8" y1="12" x2="20" y2="12" />
+              <line x1="12" y1="18" x2="20" y2="18" />
+            </svg>
+            Filters
+          </button>
+          <p class="product-count"><span id="productCountNum">24</span> Products</p>
+        </div>
+        <div class="toolbar-right">
+          <label class="sort-label" for="sortSelect">Sort by:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+          <div class="view-toggle" role="group" aria-label="Grid view options">
+            <button class="view-btn active" id="viewGrid" aria-label="Grid view" title="Grid">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+            </button>
+            <button class="view-btn" id="viewList" aria-label="List view" title="List">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters Tags -->
+      <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+
+      <!-- ─── WOTAKU SHOP SECTION ─── -->
+      <section class="shop-brand-section" id="wotaku-section" aria-labelledby="wotaku-shop-heading">
+        <div class="brand-section-header">
+          <div class="brand-section-logo">
+            <img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" height="44" style="mix-blend-mode: multiply;" />
+          </div>
+          <div>
+            <h2 class="brand-section-title" id="wotaku-shop-heading">Wotaku Shop</h2>
+            <p class="brand-section-sub">ウォタクショップ · Anime & Otaku Merchandise</p>
+          </div>
+        </div>
+
+        <!-- Category tabs for Wotaku -->
+        <div class="category-tabs" role="tablist" aria-label="Wotaku Shop categories">
+          <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-wotaku">All</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="figure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Figure
+          </button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="cosplay">Cosplay</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="acrylic">Acrylic</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="tshirt">T-Shirt</button>
+        </div>
+
+        <div class="product-grid" id="wotakuGrid" role="list">
+
+          <!-- Figure Products -->
+          <article class="product-card shop-card" data-store="wotaku" data-cat="figure" data-price="385000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_figure.png" alt="Kitsune Spirit Anime Figure" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Figure</p>
+              <p class="product-name">Kitsune Spirit Anime Figure</p>
+              <div class="product-price">
+                <span>Rp 385.000</span>
+                <span class="price-original">Rp 450.000</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="wotaku" data-cat="figure" data-price="680000"
+            data-badge="limited" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_figure.png" alt="Dragon Premium Collector Figure" loading="lazy" />
+              <span class="product-badge badge-limited">Limited</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Figure</p>
+              <p class="product-name">Dragon Premium Collector Figure</p>
+              <div class="product-price"><span>Rp 680.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="wotaku" data-cat="figure" data-price="295000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_figure.png" alt="Samurai Mini Figure Set" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Figure</p>
+              <p class="product-name">Samurai Mini Figure Set</p>
+              <div class="product-price"><span>Rp 295.000</span></div>
+            </div>
+          </article>
+
+          <!-- Cosplay Products -->
+          <article class="product-card shop-card" data-store="wotaku" data-cat="cosplay" data-price="520000"
+            data-badge="limited" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_cosplay.png" alt="Sakura Kimono Cosplay Set" loading="lazy" />
+              <span class="product-badge badge-limited">Limited</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Cosplay</p>
+              <p class="product-name">Sakura Kimono Cosplay Set</p>
+              <div class="product-price"><span>Rp 520.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="wotaku" data-cat="cosplay" data-price="380000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_cosplay.png" alt="Kitsune Fox Mask Set" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Cosplay</p>
+              <p class="product-name">Kitsune Fox Mask Set</p>
+              <div class="product-price"><span>Rp 380.000</span></div>
+            </div>
+          </article>
+
+          <!-- Acrylic Products -->
+          <article class="product-card shop-card" data-store="wotaku" data-cat="acrylic" data-price="95000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Anime Acrylic Standee Collection" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Acrylic</p>
+              <p class="product-name">Anime Acrylic Standee Collection</p>
+              <div class="product-price"><span>Rp 95.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="wotaku" data-cat="acrylic" data-price="75000"
+            data-badge="" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Sakura Character Keychain" loading="lazy" />
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · Acrylic</p>
+              <p class="product-name">Sakura Character Keychain Acrylic</p>
+              <div class="product-price"><span>Rp 75.000</span></div>
+            </div>
+          </article>
+
+          <!-- T-Shirt -->
+          <article class="product-card shop-card" data-store="wotaku" data-cat="tshirt" data-price="145000"
+            data-badge="sale" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_tshirt.png" alt="Torii Gate Graphic Tee" loading="lazy" />
+              <span class="product-badge badge-sale">Sale</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · T-Shirt</p>
+              <p class="product-name">Torii Gate Graphic Tee</p>
+              <div class="product-price">
+                <span class="price-sale">Rp 145.000</span>
+                <span class="price-original">Rp 195.000</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="wotaku" data-cat="tshirt" data-price="165000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_tshirt.png" alt="Samurai Ink Art Tee" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add">
+                <button class="quick-add-btn">+ Add to Cart</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Wotaku Shop · T-Shirt</p>
+              <p class="product-name">Samurai Ink Art Graphic Tee</p>
+              <div class="product-price"><span>Rp 165.000</span></div>
+            </div>
+          </article>
+
+        </div><!-- /wotakuGrid -->
+      </section>
+
+      <!-- ─── MND.ID SECTION ─── -->
+      <section class="shop-brand-section" id="mnd-section" aria-labelledby="mnd-id-heading">
+        <div class="brand-section-header">
+          <div class="brand-section-logo">
+            <img src="assets/images/logo_mnd.png" alt="MND.ID" height="44" style="mix-blend-mode: multiply;" />
+          </div>
+          <div>
+            <h2 class="brand-section-title" id="mnd-id-heading">mnd.id</h2>
+            <p class="brand-section-sub">エムエヌディー · Harajuku Streetwear Fashion</p>
+          </div>
+        </div>
+
+        <div class="category-tabs" role="tablist" aria-label="MND.ID categories">
+          <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-mnd">All</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="streetwear">Streetwear</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="harajuku">Harajuku</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="korean">Korean Style</button>
+        </div>
+
+        <div class="product-grid" id="mndGrid" role="list">
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="streetwear" data-price="295000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_hoodie.png" alt="Tokyo Kanji Oversized Hoodie" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Streetwear</p>
+              <p class="product-name">Tokyo Kanji Oversized Hoodie</p>
+              <div class="product-price"><span>Rp 295.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="streetwear" data-price="335000"
+            data-badge="" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_hoodie.png" alt="Shibuya Night Cargo Pants" loading="lazy" />
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Streetwear</p>
+              <p class="product-name">Shibuya Night Cargo Pants</p>
+              <div class="product-price"><span>Rp 335.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="streetwear" data-price="125000"
+            data-badge="sale" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_tshirt.png" alt="Sakura Streetwear Graphic Tee" loading="lazy" />
+              <span class="product-badge badge-sale">Sale</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Streetwear</p>
+              <p class="product-name">Sakura Streetwear Graphic Tee</p>
+              <div class="product-price">
+                <span class="price-sale">Rp 125.000</span>
+                <span class="price-original">Rp 165.000</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="harajuku" data-price="445000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_harajuku.png" alt="Harajuku Layer Outfit Set" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Harajuku</p>
+              <p class="product-name">Harajuku Layer Outfit Set</p>
+              <div class="product-price"><span>Rp 445.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="harajuku" data-price="380000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_harajuku.png" alt="Harajuku Graphic Tote Set" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Harajuku</p>
+              <p class="product-name">Harajuku Graphic Tote Bag Set</p>
+              <div class="product-price"><span>Rp 380.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="harajuku" data-price="290000" data-badge=""
+            role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_harajuku.png" alt="Kawaii Street Accessory Set" loading="lazy" />
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Harajuku</p>
+              <p class="product-name">Kawaii Street Accessory Set</p>
+              <div class="product-price"><span>Rp 290.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="korean" data-price="510000"
+            data-badge="limited" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_harajuku.png" alt="Korean Harajuku Dress Set" loading="lazy" />
+              <span class="product-badge badge-limited">Limited</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Korean Style</p>
+              <p class="product-name">Korean Harajuku Dress Set</p>
+              <div class="product-price"><span>Rp 510.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="korean" data-price="420000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_hoodie.png" alt="K-Style Oversized Jacket" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Korean Style</p>
+              <p class="product-name">K-Style Oversized Jacket</p>
+              <div class="product-price"><span>Rp 420.000</span></div>
+            </div>
+          </article>
+
+          <article class="product-card shop-card" data-store="mnd" data-cat="korean" data-price="185000"
+            data-badge="sale" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_tshirt.png" alt="Seoul Minimal Tee" loading="lazy" />
+              <span class="product-badge badge-sale">Sale</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">mnd.id · Korean Style</p>
+              <p class="product-name">Seoul Minimal Graphic Tee</p>
+              <div class="product-price">
+                <span class="price-sale">Rp 185.000</span>
+                <span class="price-original">Rp 230.000</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /mndGrid -->
+      </section>
+
+      <!-- ─── AIKOKU SECTION ─── -->
+      <section class="shop-brand-section" id="aikoku-section" aria-labelledby="aikoku-heading"
+        style="background: linear-gradient(135deg, #fff0f5 0%, #fce4f0 100%);">
+        <div class="brand-section-header">
+          <div class="brand-section-logo" style="background: white; border-radius: 50%; padding: 4px;">
+            <img src="assets/images/logo_AIKOKU.png" alt="Aikoku" height="50" />
+          </div>
+          <div>
+            <h2 class="brand-section-title" id="aikoku-heading">Aikoku</h2>
+            <p class="brand-section-sub">アイコク · Kawaii &amp; Sanrio Merchandise</p>
+          </div>
+        </div>
+
+        <div class="category-tabs" role="tablist" aria-label="Aikoku categories">
+          <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-aikoku">All</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="plushie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            Plushie
+          </button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="sanrio">Sanrio</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="keychain">Keychain</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="totebag">Tote Bag</button>
+        </div>
+
+        <div class="product-grid" id="aikokuGrid" role="list">
+
+          <!-- Aikoku Plushie 1 -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="plushie" data-price="185000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Rilakkuma Plushie XL" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Plushie</p>
+              <p class="product-name">Rilakkuma Plushie XL</p>
+              <div class="product-price"><span>Rp 185.000</span></div>
+            </div>
+          </article>
+
+          <!-- Aikoku Plushie 2 -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="plushie" data-price="135000"
+            data-badge="sale" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Cinnamoroll Plushie Medium" loading="lazy" />
+              <span class="product-badge badge-sale">Sale</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Plushie</p>
+              <p class="product-name">Cinnamoroll Plushie Medium</p>
+              <div class="product-price">
+                <span class="price-sale">Rp 135.000</span>
+                <span class="price-original">Rp 165.000</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Aikoku Sanrio -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="sanrio" data-price="120000"
+            data-badge="limited" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Kuromi Mini Figure Set" loading="lazy" />
+              <span class="product-badge badge-limited">Limited</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Sanrio</p>
+              <p class="product-name">Kuromi Mini Figure Set</p>
+              <div class="product-price"><span>Rp 120.000</span></div>
+            </div>
+          </article>
+
+          <!-- Aikoku Sanrio 2 -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="sanrio" data-price="145000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Hello Kitty Collector Set" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Sanrio</p>
+              <p class="product-name">Hello Kitty Collector Set</p>
+              <div class="product-price"><span>Rp 145.000</span></div>
+            </div>
+          </article>
+
+          <!-- Aikoku Keychain -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="keychain" data-price="65000"
+            data-badge="limited" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Kawaii Acrylic Keychain Set" loading="lazy" />
+              <span class="product-badge badge-limited">Limited</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Keychain</p>
+              <p class="product-name">Kawaii Acrylic Keychain Set</p>
+              <div class="product-price"><span>Rp 65.000</span></div>
+            </div>
+          </article>
+
+          <!-- Aikoku Tote Bag -->
+          <article class="product-card shop-card" data-store="aikoku" data-cat="totebag" data-price="95000"
+            data-badge="new" role="listitem">
+            <div class="product-image-wrap">
+              <img src="assets/images/prod_acrylic.png" alt="Kawaii Sanrio Tote Bag" loading="lazy" />
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <div class="card-quick-add"><button class="quick-add-btn">+ Add to Cart</button></div>
+            </div>
+            <div class="product-info">
+              <p class="product-brand">Aikoku · Tote Bag</p>
+              <p class="product-name">Kawaii Sanrio Tote Bag</p>
+              <div class="product-price"><span>Rp 95.000</span></div>
+            </div>
+          </article>
+
+        </div><!-- /aikokuGrid -->
+      </section>
+
+      <!-- No results state -->
+      <div class="no-results" id="noResults" style="display:none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or <button class="no-results-reset" id="noResultsReset">clear all filters</button>
+        </p>
+      </div>
+
+    </main><!-- /shop-main -->
+  </div><!-- /shop-layout -->
+
+  <!-- Sidebar backdrop (mobile) -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-grid">
+      <div>
+        <h3 class="footer-col-title">Wotaku Shop</h3>
+        <ul class="footer-links">
+          <li><a href="#">Figures</a></li>
+          <li><a href="#">Cosplay</a></li>
+          <li><a href="#">Acrylic</a></li>
+          <li><a href="#">T-Shirts</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">mnd.id</h3>
+        <ul class="footer-links">
+          <li><a href="#">Streetwear</a></li>
+          <li><a href="#">Harajuku</a></li>
+          <li><a href="#">Korean Style</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Aikoku</h3>
+        <ul class="footer-links">
+          <li><a href="#">Plushies</a></li>
+          <li><a href="#">Sanrio</a></li>
+          <li><a href="#">Keychains</a></li>
+          <li><a href="#">Tote Bags</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Help</h3>
+        <ul class="footer-links">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Company</h3>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Legal</a></li>
+        </ul>
+      </div>
+      <div style="grid-column: span 2;">
+        <h3 class="footer-col-title">Follow Us</h3>
+        <div class="footer-socials" style="margin-bottom:16px;">
+          <a href="https://www.instagram.com/mnd.shop_global/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61590757362041" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Wotaku Shop"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61590992671577" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook MND.ID"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg></a>
+          <a href="https://wa.me/6281385811993" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+        </div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">10% off your first order</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Email address"
+            aria-label="Email address" />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Wotaku Mart · ウォタクマート. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/product-data.js"></script>
+  <script src="js/shop.js"></script>
+  <script>
+  // Make all product cards clickable — navigate to product detail page
+  (function(){
+    document.querySelectorAll('.product-card').forEach(function(card){
+      var nameEl = card.querySelector('.product-name');
+      if (!nameEl) return;
+      var id = NAME_TO_ID[nameEl.textContent.trim()];
+      if (!id) return;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function(e){
+        if (e.target.closest('.product-wishlist')) return;
+        window.location.href = 'product.html?id=' + id;
+      });
+    });
+  })();
+  </script>
+</body>
+
+</html>
