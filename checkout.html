@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — WOTAKU SHOP</title>
+  <meta name="description" content="Selesaikan pesanan Anda di WOTAKU SHOP. Isi data pengiriman dan buat pesanan via WhatsApp." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="checkout-page-body">
+
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">WOTAKU <span class="red">MART</span></div>
+      <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="shop.html#wotaku-section" class="mobile-logo-link"><img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="mobile-brand-logo" /><span class="nav-jp">ウォタクショップ</span></a>
+      <a href="shop.html#mnd-section" class="mobile-logo-link"><img src="assets/images/logo_mnd.png" alt="MND.ID" class="mobile-brand-logo" /><span class="nav-jp">エムエヌディー</span></a>
+      <a href="shop.html#aikoku-section" class="mobile-logo-link"><img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="mobile-brand-logo" /><span class="nav-jp">アイコク</span></a>
+      <a href="index.html" class="mobile-nav-main">Home</a>
+      <a href="shop.html" class="mobile-nav-main">Shop</a>
+      <a href="contact.html" class="mobile-nav-main">Contact</a>
+    </div>
+  </nav>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="WOTAKU SHOP Home">
+          <div class="logo-brand">WOTAKU <span class="red">MART</span></div>
+          <div class="logo-jp">ウォタクショップ</div>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="shop.html#wotaku-section" class="nav-logo-link"><img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="nav-brand-logo" /></a>
+          <a href="shop.html#mnd-section" class="nav-logo-link"><img src="assets/images/logo_mnd.png" alt="MND.ID" class="nav-brand-logo" /></a>
+          <a href="shop.html#aikoku-section" class="nav-logo-link"><img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="nav-brand-logo" /></a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Cari produk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg><span class="search-label">Cari</span></button>
+        <button class="nav-icon-btn" aria-label="Shopping cart" id="cartBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>Cart</span>
+          <span class="cart-count">0</span>
+        </button>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="cart-breadcrumb" aria-label="Breadcrumb">
+    <div class="cart-breadcrumb-inner">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="shop.html">Shop</a><span class="sep">›</span>
+      <a href="cart.html">Keranjang</a><span class="sep">›</span>
+      <span class="current">Checkout</span>
+    </div>
+  </nav>
+
+  <div class="checkout-main" id="checkoutMain">
+
+    <!-- LEFT: Form -->
+    <div>
+      <div class="checkout-form-card">
+        <h1 class="checkout-form-title">Detail Pengiriman</h1>
+        <p class="checkout-form-subtitle">Isi data di bawah lalu klik "Buat Pesanan" — kami akan proses via WhatsApp.</p>
+
+        <form id="checkoutForm" novalidate>
+
+          <div class="checkout-section-label">Informasi Penerima</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">Nama Depan <span class="required">*</span></label>
+              <input class="form-input" type="text" id="firstName" name="firstName" placeholder="contoh: Rina" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Nama Belakang <span class="required">*</span></label>
+              <input class="form-input" type="text" id="lastName" name="lastName" placeholder="contoh: Salsabila" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-row" style="margin-top:16px">
+            <div class="form-group">
+              <label class="form-label" for="phone">No. WhatsApp / Telepon <span class="required">*</span></label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="contoh: 08123456789" required autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Alamat Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="contoh: email@gmail.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="checkout-section-label">Alamat Pengiriman</div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label class="form-label" for="address">Alamat Lengkap <span class="required">*</span></label>
+            <input class="form-input" type="text" id="address" name="address" placeholder="Nama jalan, nomor rumah, RT/RW" required autocomplete="street-address" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="city">Kota / Kabupaten <span class="required">*</span></label>
+              <input class="form-input" type="text" id="city" name="city" placeholder="contoh: Surabaya" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="province">Provinsi <span class="required">*</span></label>
+              <input class="form-input" type="text" id="province" name="province" placeholder="contoh: Jawa Timur" required />
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:16px; max-width:200px">
+            <label class="form-label" for="zipCode">Kode Pos</label>
+            <input class="form-input" type="text" id="zipCode" name="zipCode" placeholder="60111" maxlength="6" autocomplete="postal-code" />
+          </div>
+
+          <div class="checkout-section-label">Catatan Pesanan</div>
+          <div class="form-group">
+            <label class="form-label" for="notes">Catatan untuk Penjual (opsional)</label>
+            <textarea class="form-textarea" id="notes" name="notes" placeholder="Catatan khusus, misalnya: tolong dibungkus rapi ya kak :)"></textarea>
+          </div>
+
+          <button type="submit" class="checkout-submit-btn" id="submitOrderBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Buat Pesanan via WhatsApp
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- RIGHT: Order Summary -->
+    <div>
+      <div class="checkout-summary-card" id="orderSummary">
+        <div class="checkout-summary-header">Pesanan Anda</div>
+        <div class="checkout-summary-body" id="summaryBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="https://wa.me/6281385811993" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Cari produk">
+    <div class="search-box">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg>
+        <input class="search-input-field" id="searchInputField" type="text" placeholder="Cari produk, brand, kategori..." autocomplete="off" />
+        <button class="search-close-btn" id="searchCloseBtn" aria-label="Tutup pencarian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <p class="search-hint">Produk populer</p>
+      </div>
+    </div>
+  </div>
+    <script src="js/cart.js"></script>
+  <script src="js/product-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function() {
+    var summaryBody = document.getElementById('summaryBody');
+    var form = document.getElementById('checkoutForm');
+
+    function renderSummary() {
+      var cart = WotakuCart.getCart();
+      if (!cart.length) {
+        summaryBody.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:24px 0">Keranjang kosong. <a href="shop.html" style="color:var(--accent-red);font-weight:600">Belanja dulu yuk!</a></p>';
+        return;
+      }
+      var itemsHTML = '';
+      cart.forEach(function(item) {
+        itemsHTML +=
+          '<div class="checkout-item">' +
+            '<img class="checkout-item-img" src="' + (item.image||'assets/images/prod_figure.png') + '" alt="' + item.name + '" onerror="this.src=\'assets/images/prod_figure.png\'" />' +
+            '<div class="checkout-item-info">' +
+              '<p class="checkout-item-name">' + item.name + '</p>' +
+              '<p class="checkout-item-qty">' + (item.brand||'') + ' &times; ' + (item.quantity||1) + '</p>' +
+            '</div>' +
+            '<div class="checkout-item-price">' + WotakuCart.fmt(item.price * (item.quantity||1)) + '</div>' +
+          '</div>';
+      });
+      var total = WotakuCart.getTotal();
+      summaryBody.innerHTML =
+        itemsHTML +
+        '<hr class="checkout-summary-hr" />' +
+        '<div class="checkout-summary-row"><span class="label">Subtotal</span><span class="value">' + WotakuCart.fmt(total) + '</span></div>' +
+        '<div class="checkout-summary-row"><span class="label">Ongkos Kirim</span><span class="value" style="font-style:italic;color:var(--text-muted)">Dikonfirmasi via WA</span></div>' +
+        '<div class="checkout-summary-row total"><span class="label">Total</span><span class="value">' + WotakuCart.fmt(total) + '</span></div>' +
+        '<div class="checkout-payment-note">' +
+          '<strong>Cara Pembayaran:</strong><br>' +
+          'Transfer Bank / QRIS / COD (tergantung lokasi).<br>' +
+          'Konfirmasi pembayaran setelah transfer ya kak 😊' +
+        '</div>';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderSummary();
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var cart = WotakuCart.getCart();
+          if (!cart.length) { alert('Keranjang kosong!'); return; }
+
+          var firstName = document.getElementById('firstName').value.trim();
+          var lastName  = document.getElementById('lastName').value.trim();
+          var phone     = document.getElementById('phone').value.trim();
+          var email     = document.getElementById('email').value.trim();
+          var address   = document.getElementById('address').value.trim();
+          var city      = document.getElementById('city').value.trim();
+          var province  = document.getElementById('province').value.trim();
+          var zipCode   = document.getElementById('zipCode').value.trim();
+          var notes     = document.getElementById('notes').value.trim();
+
+          // Validate
+          var errors = [];
+          if (!firstName) errors.push('firstName');
+          if (!lastName)  errors.push('lastName');
+          if (!phone)     errors.push('phone');
+          if (!address)   errors.push('address');
+          if (!city)      errors.push('city');
+          if (!province)  errors.push('province');
+
+          document.querySelectorAll('.form-input').forEach(function(el) { el.classList.remove('error'); });
+          if (errors.length) {
+            errors.forEach(function(id) {
+              var el = document.getElementById(id);
+              if (el) el.classList.add('error');
+            });
+            document.getElementById(errors[0]).focus();
+            return;
+          }
+
+          // Build WA message
+          var itemLines = cart.map(function(item) {
+            return '\u2022 ' + item.name + ' \u00d7' + (item.quantity||1) + ' \u2014 ' + WotakuCart.fmt(item.price * (item.quantity||1));
+          }).join('\n');
+
+          var total = WotakuCart.getTotal();
+          var addressFull = address + ', ' + city + ', ' + province + (zipCode ? ' ' + zipCode : '');
+
+          var msg =
+            'Halo WOTAKU SHOP! \uD83D\uDC4B\n\n' +
+            '\uD83D\uDCCB *PESANAN BARU*\n' +
+            '\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\n' +
+            itemLines + '\n' +
+            '\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\n' +
+            '\uD83D\uDCB0 *Total: ' + WotakuCart.fmt(total) + '*\n\n' +
+            '\uD83D\uDC64 *DATA PENERIMA*\n' +
+            'Nama: ' + firstName + ' ' + lastName + '\n' +
+            'Telepon: ' + phone + '\n' +
+            (email ? 'Email: ' + email + '\n' : '') +
+            'Alamat: ' + addressFull + '\n' +
+            (notes ? '\n\uD83D\uDCDD Catatan: ' + notes + '\n' : '') +
+            '\nMohon konfirmasi ketersediaan dan biaya pengiriman ya kak, terima kasih! \uD83D\uDE4F';
+
+          var waURL = 'https://wa.me/' + WotakuCart.WA_NUMBER + '?text=' + encodeURIComponent(msg);
+          window.open(waURL, '_blank');
+        });
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
+
+
+
+

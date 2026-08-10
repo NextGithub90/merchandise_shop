@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang Belanja — WOTAKU SHOP</title>
+  <meta name="description" content="Review keranjang belanja Anda di WOTAKU SHOP sebelum melanjutkan ke checkout." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="cart-page-body">
+
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">WOTAKU <span class="red">MART</span></div>
+      <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="shop.html#wotaku-section" class="mobile-logo-link"><img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="mobile-brand-logo" /><span class="nav-jp">ウォタクショップ</span></a>
+      <a href="shop.html#mnd-section" class="mobile-logo-link"><img src="assets/images/logo_mnd.png" alt="MND.ID" class="mobile-brand-logo" /><span class="nav-jp">エムエヌディー</span></a>
+      <a href="shop.html#aikoku-section" class="mobile-logo-link"><img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="mobile-brand-logo" /><span class="nav-jp">アイコク</span></a>
+      <a href="index.html" class="mobile-nav-main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+      <a href="shop.html" class="mobile-nav-main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Shop</a>
+      <a href="contact.html" class="mobile-nav-main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
+    </div>
+  </nav>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="WOTAKU SHOP Home">
+          <div class="logo-brand">WOTAKU <span class="red">MART</span></div>
+          <div class="logo-jp">ウォタクショップ</div>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="shop.html#wotaku-section" class="nav-logo-link"><img src="assets/images/logo_wotaku.png" alt="Wotaku Shop" class="nav-brand-logo" /></a>
+          <a href="shop.html#mnd-section" class="nav-logo-link"><img src="assets/images/logo_mnd.png" alt="MND.ID" class="nav-brand-logo" /></a>
+          <a href="shop.html#aikoku-section" class="nav-logo-link"><img src="assets/images/logo_AIKOKU.png" alt="Aikoku" class="nav-brand-logo" /></a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Cari produk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg><span class="search-label">Cari</span></button>
+        <button class="nav-icon-btn" aria-label="Shopping cart" id="cartBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>Cart</span>
+          <span class="cart-count" aria-label="0 items">0</span>
+        </button>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="cart-breadcrumb" aria-label="Breadcrumb">
+    <div class="cart-breadcrumb-inner">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="shop.html">Shop</a><span class="sep">›</span>
+      <span class="current">Keranjang Belanja</span>
+    </div>
+  </nav>
+
+  <div class="cart-main" id="cartMain">
+    <!-- Rendered by JS -->
+  </div>
+
+  <a href="https://wa.me/6281385811993" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Cari produk">
+    <div class="search-box">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg>
+        <input class="search-input-field" id="searchInputField" type="text" placeholder="Cari produk, brand, kategori..." autocomplete="off" />
+        <button class="search-close-btn" id="searchCloseBtn" aria-label="Tutup pencarian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <p class="search-hint">Produk populer</p>
+      </div>
+    </div>
+  </div>
+    <script src="js/cart.js"></script>
+  <script src="js/product-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function() {
+    var cartMain = document.getElementById('cartMain');
+
+    function renderCart() {
+      var cart = WotakuCart.getCart();
+      if (cart.length === 0) {
+        cartMain.innerHTML =
+          '<div style="grid-column:1/-1">' +
+          '<div class="cart-empty">' +
+            '<div class="cart-empty-icon">🛒</div>' +
+            '<h2 class="cart-empty-title">Keranjang Masih Kosong</h2>' +
+            '<p class="cart-empty-text">Temukan produk favoritmu dan tambahkan ke keranjang.</p>' +
+            '<a href="shop.html" class="cart-shop-btn">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>' +
+              'Mulai Belanja' +
+            '</a>' +
+          '</div></div>';
+        return;
+      }
+
+      var itemsHTML = '';
+      cart.forEach(function(item) {
+        var subtotal = item.price * (item.quantity || 1);
+        itemsHTML +=
+          '<div class="cart-item" data-id="' + item.id + '">' +
+            '<div class="cart-item-product">' +
+              '<img class="cart-item-img" src="' + (item.image || 'assets/images/prod_figure.png') + '" alt="' + item.name + '" onerror="this.src=\'assets/images/prod_figure.png\'" />' +
+              '<div class="cart-item-info">' +
+                '<p class="cart-item-brand">' + (item.brand || '') + '</p>' +
+                '<p class="cart-item-name">' + item.name + '</p>' +
+              '</div>' +
+            '</div>' +
+            '<div class="cart-item-price">' + WotakuCart.fmt(item.price) + '</div>' +
+            '<div class="cart-qty">' +
+              '<button class="cart-qty-btn qty-minus" data-id="' + item.id + '">&#8722;</button>' +
+              '<input class="cart-qty-input" type="number" value="' + (item.quantity || 1) + '" min="1" max="99" data-id="' + item.id + '" />' +
+              '<button class="cart-qty-btn qty-plus" data-id="' + item.id + '">&#43;</button>' +
+            '</div>' +
+            '<div class="cart-item-subtotal">' + WotakuCart.fmt(subtotal) + '</div>' +
+            '<button class="cart-remove-btn" data-id="' + item.id + '" aria-label="Hapus produk">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
+            '</button>' +
+          '</div>';
+      });
+
+      var total = WotakuCart.getTotal();
+      var count = WotakuCart.getCount();
+
+      cartMain.innerHTML =
+        '<div>' +
+          '<h1 class="cart-section-title">Keranjang Belanja</h1>' +
+          '<p class="cart-section-subtitle">' + count + ' produk dalam keranjang</p>' +
+          '<div class="cart-items-card">' +
+            '<div class="cart-table-head">' +
+              '<div class="cart-th">Produk</div>' +
+              '<div class="cart-th">Harga</div>' +
+              '<div class="cart-th">Jumlah</div>' +
+              '<div class="cart-th">Subtotal</div>' +
+              '<div class="cart-th"></div>' +
+            '</div>' +
+            itemsHTML +
+            '<div class="cart-bottom">' +
+              '<a href="shop.html" class="cart-continue-link">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/></svg>' +
+                'Lanjutkan Belanja' +
+              '</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="cart-summary-card">' +
+            '<div class="cart-summary-header">' +
+              '<div class="cart-summary-title">Total Keranjang</div>' +
+            '</div>' +
+            '<div class="cart-summary-body">' +
+              '<div class="cart-summary-row"><span class="cart-summary-label">Subtotal</span><span class="cart-summary-value" id="summarySubtotal">' + WotakuCart.fmt(total) + '</span></div>' +
+              '<div class="cart-summary-row"><span class="cart-summary-label">Ongkos Kirim</span><span class="cart-shipping-note">Dihitung saat checkout</span></div>' +
+              '<div class="cart-summary-row"><span class="cart-summary-total-label">Total</span><span class="cart-summary-total-value" id="summaryTotal">' + WotakuCart.fmt(total) + '</span></div>' +
+              '<button class="cart-checkout-btn" id="checkoutBtn">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+                'Lanjutkan ke Checkout' +
+              '</button>' +
+              '<div class="cart-trust-mini">' +
+                '<div class="cart-trust-mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>Produk 100% Asli & Original</div>' +
+                '<div class="cart-trust-mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>Pengiriman Cepat & Terjamin</div>' +
+                '<div class="cart-trust-mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>Garansi Retur 7 Hari</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+
+      // Bind events
+      cartMain.querySelectorAll('.cart-remove-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          WotakuCart.removeItem(btn.dataset.id);
+          renderCart();
+        });
+      });
+      cartMain.querySelectorAll('.qty-minus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var cart = WotakuCart.getCart();
+          var item = cart.find(function(c){return c.id===btn.dataset.id;});
+          if (item && item.quantity > 1) { WotakuCart.updateQty(btn.dataset.id, item.quantity - 1); renderCart(); }
+          else if (item && item.quantity <= 1) { WotakuCart.removeItem(btn.dataset.id); renderCart(); }
+        });
+      });
+      cartMain.querySelectorAll('.qty-plus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var cart = WotakuCart.getCart();
+          var item = cart.find(function(c){return c.id===btn.dataset.id;});
+          if (item) { WotakuCart.updateQty(btn.dataset.id, (item.quantity||1) + 1); renderCart(); }
+        });
+      });
+      cartMain.querySelectorAll('.cart-qty-input').forEach(function(input) {
+        input.addEventListener('change', function() {
+          var qty = parseInt(input.value, 10);
+          if (qty >= 1) { WotakuCart.updateQty(input.dataset.id, qty); renderCart(); }
+        });
+      });
+      var checkoutBtn = document.getElementById('checkoutBtn');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() { window.location.href = 'checkout.html'; });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCart);
+  })();
+  </script>
+</body>
+</html>
+
+
+
+

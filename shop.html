@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop — WOTAKU MART | Japanese Merchandise & Fashion</title>
+  <title>Shop — WOTAKU SHOP | Japanese Merchandise & Fashion</title>
   <meta name="description"
-    content="Browse all Wotaku Mart products — anime figures, cosplay, acrylic standees, streetwear & Harajuku fashion from Wotaku Shop and mnd.id." />
+    content="Browse all WOTAKU SHOP products — anime figures, cosplay, acrylic standees, streetwear & Harajuku fashion from Wotaku Shop and mnd.id." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/shop.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,9 +68,9 @@
     <div class="nav-container">
       <!-- Nav Left: Logo + Store logos -->
       <div class="nav-left">
-        <a href="index.html" class="nav-logo" aria-label="Wotaku Mart Home">
+        <a href="index.html" class="nav-logo" aria-label="WOTAKU SHOP Home">
           <div class="logo-brand">WOTAKU <span class="red">MART</span></div>
-          <div class="logo-jp">ウォタクマート</div>
+          <div class="logo-jp">ウォタクショップ</div>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#wotaku-section" class="nav-logo-link">
@@ -86,6 +86,7 @@
       </div>
       <!-- Nav Right: Cart + Hamburger -->
       <div class="nav-right">
+        <button class="search-btn" id="searchBtn" aria-label="Cari produk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg><span class="search-label">Cari</span></button>
         <button class="nav-icon-btn" aria-label="Shopping cart" id="cartBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -150,34 +151,52 @@
         <div class="filter-group">
           <h3 class="filter-group-title">Category</h3>
           <label class="filter-check">
+            <input type="checkbox" name="cat" value="anime-fashion" id="catAnimeFashion" />
+            <span class="check-label">Anime Fashion</span>
+          </label>
+          <label class="filter-check">
             <input type="checkbox" name="cat" value="figure" id="catFigure" />
-            <span class="check-label">Figures</span>
-            <span class="check-count">4</span>
+            <span class="check-label">Figure</span>
           </label>
           <label class="filter-check">
             <input type="checkbox" name="cat" value="cosplay" id="catCosplay" />
-            <span class="check-label">Cosplay</span>
-            <span class="check-count">3</span>
+            <span class="check-label">Cosplay Wig</span>
           </label>
           <label class="filter-check">
-            <input type="checkbox" name="cat" value="acrylic" id="catAcrylic" />
-            <span class="check-label">Acrylic</span>
-            <span class="check-count">3</span>
+            <input type="checkbox" name="cat" value="plushie" id="catPlushie" />
+            <span class="check-label">Plushie</span>
           </label>
           <label class="filter-check">
-            <input type="checkbox" name="cat" value="streetwear" id="catStreetwear" />
-            <span class="check-label">Streetwear</span>
-            <span class="check-count">3</span>
+            <input type="checkbox" name="cat" value="dakimakura" id="catDakimakura" />
+            <span class="check-label">Dakimakura / Body Pillow</span>
           </label>
           <label class="filter-check">
-            <input type="checkbox" name="cat" value="harajuku" id="catHarajuku" />
-            <span class="check-label">Harajuku</span>
-            <span class="check-count">3</span>
+            <input type="checkbox" name="cat" value="gundam" id="catGundam" />
+            <span class="check-label">Gundam &amp; Tokusatsu</span>
           </label>
           <label class="filter-check">
-            <input type="checkbox" name="cat" value="korean" id="catKorean" />
-            <span class="check-label">Korean Style</span>
-            <span class="check-count">2</span>
+            <input type="checkbox" name="cat" value="kpop" id="catKpop" />
+            <span class="check-label">Kpop Goods</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="clothing" id="catClothing" />
+            <span class="check-label">Clothing</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="bags" id="catBags" />
+            <span class="check-label">Bags</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="accessories" id="catAccessories" />
+            <span class="check-label">Accessories</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="footwear" id="catFootwear" />
+            <span class="check-label">Footwear</span>
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" name="cat" value="kids" id="catKids" />
+            <span class="check-label">Kids</span>
           </label>
         </div>
 
@@ -287,15 +306,15 @@
         <!-- Category tabs for Wotaku -->
         <div class="category-tabs" role="tablist" aria-label="Wotaku Shop categories">
           <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-wotaku">All</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="figure">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-            Figure
-          </button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="cosplay">Cosplay</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="acrylic">Acrylic</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="tshirt">T-Shirt</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="anime-fashion">Anime Fashion</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="anime-goodies">Anime Goodies / Merchandise</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="figure">Figure</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="cosplay">Fullset Costume Cosplay Wig</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="plushie">Plushie</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="dakimakura">Dakimakura / Body Pillow</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="gundam">Gundam &amp; Tokusatsu</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="kpop">Kpop Goods</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="preorder">Pre-Order</button>
         </div>
 
         <div class="product-grid" id="wotakuGrid" role="list">
@@ -524,9 +543,11 @@
 
         <div class="category-tabs" role="tablist" aria-label="MND.ID categories">
           <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-mnd">All</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="streetwear">Streetwear</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="harajuku">Harajuku</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="korean">Korean Style</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="clothing">Clothing</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="bags">Bags</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="accessories">Accessories</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="footwear">Footwear</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="brands">Brands</button>
         </div>
 
         <div class="product-grid" id="mndGrid" role="list">
@@ -733,15 +754,14 @@
 
         <div class="category-tabs" role="tablist" aria-label="Aikoku categories">
           <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all-aikoku">All</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="plushie">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
-            Plushie
-          </button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="sanrio">Sanrio</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="keychain">Keychain</button>
-          <button class="cat-tab" role="tab" aria-selected="false" data-cat="totebag">Tote Bag</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="girls">Girls</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="boys">Boys</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="kids-dresses">Kids Dresses</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="kids-tops">Kids Tops</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="kids-bottoms">Kids Bottoms</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="kids-outerwear">Kids Outerwear</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="shoes">Shoes</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="bags">Bags</button>
         </div>
 
         <div class="product-grid" id="aikokuGrid" role="list">
@@ -892,51 +912,51 @@
       <div>
         <h3 class="footer-col-title">Wotaku Shop</h3>
         <ul class="footer-links">
-          <li><a href="#">Figures</a></li>
-          <li><a href="#">Cosplay</a></li>
-          <li><a href="#">Acrylic</a></li>
-          <li><a href="#">T-Shirts</a></li>
-          <li><a href="#">Sale</a></li>
+          <li><a href="#wotaku-section">Anime Fashion</a></li>
+          <li><a href="#wotaku-section">Anime Goodies / Merchandise</a></li>
+          <li><a href="#wotaku-section">Figure</a></li>
+          <li><a href="#wotaku-section">Fullset Costume Cosplay Wig</a></li>
+          <li><a href="#wotaku-section">Plushie</a></li>
+          <li><a href="#wotaku-section">Dakimakura / Body Pillow</a></li>
+          <li><a href="#wotaku-section">Gundam &amp; Tokusatsu</a></li>
+          <li><a href="#wotaku-section">Kpop Goods</a></li>
+          <li><a href="#wotaku-section">Pre-Order</a></li>
         </ul>
       </div>
       <div>
         <h3 class="footer-col-title">mnd.id</h3>
         <ul class="footer-links">
-          <li><a href="#">Streetwear</a></li>
-          <li><a href="#">Harajuku</a></li>
-          <li><a href="#">Korean Style</a></li>
-          <li><a href="#">Accessories</a></li>
-          <li><a href="#">Sale</a></li>
+          <li><a href="#mnd-section">Clothing</a></li>
+          <li><a href="#mnd-section">Bags</a></li>
+          <li><a href="#mnd-section">Accessories</a></li>
+          <li><a href="#mnd-section">Footwear</a></li>
+          <li><a href="#mnd-section">Brands</a></li>
         </ul>
       </div>
       <div>
         <h3 class="footer-col-title">Aikoku</h3>
         <ul class="footer-links">
-          <li><a href="#">Plushies</a></li>
-          <li><a href="#">Sanrio</a></li>
-          <li><a href="#">Keychains</a></li>
-          <li><a href="#">Tote Bags</a></li>
-          <li><a href="#">Sale</a></li>
+          <li><a href="#aikoku-section">Girls</a></li>
+          <li><a href="#aikoku-section">Boys</a></li>
+          <li><a href="#aikoku-section">Kids Dresses</a></li>
+          <li><a href="#aikoku-section">Kids Tops</a></li>
+          <li><a href="#aikoku-section">Kids Bottoms</a></li>
+          <li><a href="#aikoku-section">Kids Outerwear</a></li>
+          <li><a href="#aikoku-section">Shoes</a></li>
+          <li><a href="#aikoku-section">Bags</a></li>
         </ul>
       </div>
       <div>
-        <h3 class="footer-col-title">Help</h3>
+        <h3 class="footer-col-title">More</h3>
         <ul class="footer-links">
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">About Wotaku Shop</a></li>
+          <li><a href="testimoni.html">Testimoni / Customer Review</a></li>
+          <li><a href="#">Shipping &amp; Returns</a></li>
           <li><a href="#">Size Guide</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Voucher &amp; Gift Cards</a></li>
         </ul>
       </div>
-      <div>
-        <h3 class="footer-col-title">Company</h3>
-        <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Legal</a></li>
-        </ul>
-      </div>
+
       <div style="grid-column: span 2;">
         <h3 class="footer-col-title">Follow Us</h3>
         <div class="footer-socials" style="margin-bottom:16px;">
@@ -954,7 +974,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Wotaku Mart · ウォタクマート. All rights reserved.</p>
+      <p>© 2026 WOTAKU SHOP · ウォタクショップ. All rights reserved.</p>
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms</a>
@@ -963,6 +983,20 @@
     </div>
   </footer>
 
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Cari produk">
+    <div class="search-box">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg>
+        <input class="search-input-field" id="searchInputField" type="text" placeholder="Cari produk, brand, kategori..." autocomplete="off" />
+        <button class="search-close-btn" id="searchCloseBtn" aria-label="Tutup pencarian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <p class="search-hint">Produk populer</p>
+      </div>
+    </div>
+  </div>
+    <script src="js/cart.js"></script>
   <script src="js/product-data.js"></script>
   <script src="js/shop.js"></script>
   <script>
@@ -984,3 +1018,5 @@
 </body>
 
 </html>
+
+

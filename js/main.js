@@ -42,46 +42,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── SAKURA PETALS ANIMATION ───
   const sakuraContainer = document.getElementById('sakuraContainer');
-  const PETAL_COUNT = 18;
-
-  const createPetal = () => {
-    const petal = document.createElement('div');
-    petal.className = 'sakura-petal';
-
-    const size = 8 + Math.random() * 10;
-    const startX = Math.random() * 100;
-    const duration = 8 + Math.random() * 12;
-    const delay = Math.random() * 15;
-
-    petal.style.cssText = `
-      width: ${size}px;
-      height: ${size}px;
-      left: ${startX}%;
-      animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
-      opacity: 0;
-    `;
-
-    return petal;
-  };
-
-  for (let i = 0; i < PETAL_COUNT; i++) {
-    sakuraContainer.appendChild(createPetal());
+  if (sakuraContainer) {
+    const PETAL_COUNT = 18;
+    const createPetal = () => {
+      const petal = document.createElement('div');
+      petal.className = 'sakura-petal';
+      const size = 8 + Math.random() * 10;
+      const startX = Math.random() * 100;
+      const duration = 8 + Math.random() * 12;
+      const delay = Math.random() * 15;
+      petal.style.cssText = `width:${size}px;height:${size}px;left:${startX}%;animation-duration:${duration}s;animation-delay:${delay}s;opacity:0;`;
+      return petal;
+    };
+    for (let i = 0; i < PETAL_COUNT; i++) sakuraContainer.appendChild(createPetal());
+    setInterval(() => {
+      sakuraContainer.querySelectorAll('.sakura-petal').forEach(petal => {
+        if (petal.getBoundingClientRect().top > window.innerHeight + 20) {
+          petal.style.left = `${Math.random() * 100}%`;
+          petal.style.animationDuration = `${8 + Math.random() * 12}s`;
+          petal.style.animationDelay = '0s';
+        }
+      });
+    }, 5000);
   }
-
-  // Recycle petals
-  setInterval(() => {
-    const petals = sakuraContainer.querySelectorAll('.sakura-petal');
-    petals.forEach(petal => {
-      const rect = petal.getBoundingClientRect();
-      if (rect.top > window.innerHeight + 20) {
-        petal.style.left = `${Math.random() * 100}%`;
-        const dur = 8 + Math.random() * 12;
-        petal.style.animationDuration = `${dur}s`;
-        petal.style.animationDelay = '0s';
-      }
-    });
-  }, 5000);
 
   // ─── SCROLL ANIMATIONS (Intersection Observer) ───
   const fadeElements = document.querySelectorAll('.fade-up');
@@ -164,25 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── CART INTERACTION ───
-  const cartBtn = document.getElementById('cartBtn');
-  let cartCount = 0;
-  const cartCountEl = cartBtn?.querySelector('.cart-count');
-
-  document.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      // Don't trigger on wishlist button clicks
-      if (e.target.closest('.product-wishlist')) return;
-
-      cartCount++;
-      if (cartCountEl) {
-        cartCountEl.textContent = cartCount;
-        cartCountEl.style.transform = 'scale(1.4)';
-        setTimeout(() => { cartCountEl.style.transform = ''; }, 300);
-      }
-
-      const productName = card.querySelector('.product-name')?.textContent || 'Item';
-      showToast(`🛒 "${productName}" added to cart!`);
+  // ─── QUICK ADD TO CART ───
+  document.querySelectorAll('.quick-add-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.product-card');
+      if (!card) return;
+      const item = WotakuCart.itemFromCard(card);
+      WotakuCart.addItem(item);
+      WotakuCart.pulseBadge();
+      const productName = item.name;
+      showToast(`🛒 "${productName}" ditambahkan ke keranjang!`);
     });
   });
 
@@ -229,14 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   };
 
-  // ─── SEARCH BUTTON FUNCTIONALITY ───
-  const searchBtn = document.getElementById('searchBtn');
-  if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-      showToast('🔍 Search coming soon...');
-    });
-  }
-
   // ─── PANEL HOVER CURSOR ANIMATION ───
   document.querySelectorAll('.store-panel').forEach(panel => {
     panel.addEventListener('mousemove', (e) => {
@@ -251,5 +218,114 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  console.log('🌸 Wotaku Mart initialized — ウォタクマートへようこそ!');
+  // ─── SEARCH OVERLAY ───
+  const searchBtn     = document.getElementById('searchBtn');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchInput   = document.getElementById('searchInputField');
+  const searchResults = document.getElementById('searchResults');
+  const searchClose   = document.getElementById('searchCloseBtn');
+
+  function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => searchInput && searchInput.focus(), 80);
+  }
+  function closeSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (searchInput) searchInput.value = '';
+    renderDefaultResults();
+  }
+
+  if (searchBtn)   searchBtn.addEventListener('click', openSearch);
+  if (searchClose) searchClose.addEventListener('click', closeSearch);
+  if (searchOverlay) {
+    searchOverlay.addEventListener('click', (e) => {
+      if (e.target === searchOverlay) closeSearch();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+  });
+
+  function formatRp(n) {
+    return 'Rp ' + Number(n).toLocaleString('id-ID');
+  }
+  function renderResults(items, query) {
+    if (!searchResults) return;
+    if (!items.length) {
+      searchResults.innerHTML = '<p class="search-no-result">Produk tidak ditemukan untuk <strong>"' + query + '"</strong></p>';
+      return;
+    }
+    const hl = (text) => {
+      if (!query) return text;
+      return text.replace(new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<span class="search-result-highlight">$1</span>');
+    };
+    searchResults.innerHTML = '<p class="search-hint">Hasil pencarian (' + items.length + ')</p>' +
+      items.slice(0, 8).map(p => {
+        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.png';
+        const price = p.salePrice ? formatRp(p.salePrice) : (p.price ? formatRp(p.price) : '');
+        return '<a class="search-result-item" href="product.html?id=' + p.id + '">' +
+          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.png\'">' +
+          '<div class="search-result-info">' +
+            '<p class="search-result-name">' + hl(p.name) + '</p>' +
+            '<p class="search-result-meta">' + (p.brand || '') + (p.category ? ' · ' + p.category : '') + '</p>' +
+          '</div>' +
+          '<span class="search-result-price">' + price + '</span>' +
+        '</a>';
+      }).join('');
+  }
+  function renderDefaultResults() {
+    if (!searchResults) return;
+    if (typeof PRODUCT_DB === 'undefined' || !PRODUCT_DB.length) {
+      searchResults.innerHTML = '<p class="search-no-result">Data produk belum dimuat.</p>';
+      return;
+    }
+    const popular = PRODUCT_DB.slice(0, 5);
+    searchResults.innerHTML = '<p class="search-hint">Produk populer</p>' +
+      popular.map(p => {
+        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.png';
+        const price = p.salePrice ? formatRp(p.salePrice) : (p.price ? formatRp(p.price) : '');
+        return '<a class="search-result-item" href="product.html?id=' + p.id + '">' +
+          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.png\'">' +
+          '<div class="search-result-info">' +
+            '<p class="search-result-name">' + p.name + '</p>' +
+            '<p class="search-result-meta">' + (p.brand || '') + '</p>' +
+          '</div>' +
+          '<span class="search-result-price">' + price + '</span>' +
+        '</a>';
+      }).join('');
+  }
+
+  let searchDebounce;
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchDebounce);
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) { renderDefaultResults(); return; }
+      searchDebounce = setTimeout(() => {
+        if (typeof PRODUCT_DB === 'undefined') { searchResults.innerHTML = '<p class="search-no-result">Data produk belum dimuat.</p>'; return; }
+        const filtered = PRODUCT_DB.filter(p =>
+          (p.name && p.name.toLowerCase().includes(q)) ||
+          (p.brand && p.brand.toLowerCase().includes(q)) ||
+          (p.category && p.category.toLowerCase().includes(q)) ||
+          (p.tags && p.tags.some(t => t.toLowerCase().includes(q)))
+        );
+        renderResults(filtered, q);
+      }, 180);
+    });
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const first = searchResults && searchResults.querySelector('.search-result-item');
+        if (first) { closeSearch(); window.location.href = first.href; }
+      }
+    });
+  }
+
+  renderDefaultResults();
+
+  console.log('🌸 Wotaku Shop initialized — ウォタクショップへようこそ!');
 });

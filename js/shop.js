@@ -4,6 +4,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── FADE-UP SCROLL ANIMATION ───
+  const fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(el => obs.observe(el));
+  } else {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }
+
   // ─── REUSE: Navbar scroll + mobile menu (same as main.js) ───
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -100,17 +111,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide entire store sections if filtered out
     const wotakuSection = document.getElementById('wotaku-section');
     const mndSection = document.getElementById('mnd-section');
+    const aikokuSection = document.getElementById('aikoku-section');
     
-    if (wotakuSection && mndSection) {
+    if (wotakuSection && mndSection && aikokuSection) {
       if (activeFilters.store === 'all') {
         wotakuSection.style.display = 'block';
         mndSection.style.display = 'block';
+        aikokuSection.style.display = 'block';
       } else if (activeFilters.store === 'wotaku') {
         wotakuSection.style.display = 'block';
         mndSection.style.display = 'none';
+        aikokuSection.style.display = 'none';
       } else if (activeFilters.store === 'mnd') {
         wotakuSection.style.display = 'none';
         mndSection.style.display = 'block';
+        aikokuSection.style.display = 'none';
+      } else if (activeFilters.store === 'aikoku') {
+        wotakuSection.style.display = 'none';
+        mndSection.style.display = 'none';
+        aikokuSection.style.display = 'block';
       }
     }
 
@@ -123,7 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     activeFiltersEl.innerHTML = '';
 
     if (activeFilters.store !== 'all') {
-      addTag(`Store: ${activeFilters.store === 'wotaku' ? 'Wotaku Shop' : 'mnd.id'}`, () => {
+      const storeName = activeFilters.store === 'wotaku' ? 'Wotaku Shop' : (activeFilters.store === 'mnd' ? 'mnd.id' : 'Aikoku');
+      addTag(`Store: ${storeName}`, () => {
         activeFilters.store = 'all';
         document.getElementById('filterAll').checked = true;
         applyFilters();
@@ -300,20 +320,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── QUICK ADD TO CART ───
-  let cartCount = 0;
-  const cartCountEl = document.querySelector('.cart-count');
-
   document.querySelectorAll('.quick-add-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      cartCount++;
-      if (cartCountEl) {
-        cartCountEl.textContent = cartCount;
-        cartCountEl.style.transform = 'scale(1.4)';
-        setTimeout(() => { cartCountEl.style.transform = ''; }, 300);
-      }
-      const name = btn.closest('.product-card').querySelector('.product-name')?.textContent || 'Item';
-      showToast(`🛒 "${name}" added to cart!`);
+      const card = btn.closest('.product-card');
+      if (!card) return;
+      const item = WotakuCart.itemFromCard(card);
+      WotakuCart.addItem(item);
+      WotakuCart.pulseBadge();
+      showToast(`🛒 "${item.name}" ditambahkan ke keranjang!`);
     });
   });
 

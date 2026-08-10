@@ -163,6 +163,28 @@
     waBtn.href = 'https://wa.me/' + product.waNumber + '?text=' + encodeURIComponent(waMsg);
   }
 
+  /* ── Add to Cart Button ── */
+  var pdCartBtn = get('pdAddToCartBtn');
+  if (pdCartBtn && product) {
+    pdCartBtn.addEventListener('click', function () {
+      WotakuCart.addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: (product.images && product.images[0]) ? product.images[0] : '',
+        brand: product.brand || ''
+      });
+      WotakuCart.pulseBadge();
+      var origHTML = pdCartBtn.innerHTML;
+      pdCartBtn.classList.add('added');
+      pdCartBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg> <span>Ditambahkan ke Keranjang!</span>';
+      setTimeout(function () {
+        pdCartBtn.innerHTML = origHTML;
+        pdCartBtn.classList.remove('added');
+      }, 2000);
+    });
+  }
+
   /* ── Tabs ── */
   var tabBtns = document.querySelectorAll('.pd-tab-btn');
   var tabPanels = document.querySelectorAll('.pd-tab-panel');

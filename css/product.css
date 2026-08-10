@@ -262,6 +262,50 @@
   margin-bottom: 0;
 }
 
+/* ─── Add to Cart Button (Product Detail) ─── */
+.pd-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  margin-top: 12px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+.pd-cart-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index: 0;
+}
+.pd-cart-btn:hover::before { transform: scaleX(1); }
+.pd-cart-btn:hover { color: white; }
+.pd-cart-btn svg,
+.pd-cart-btn span { position: relative; z-index: 1; pointer-events: none; }
+.pd-cart-btn:active { transform: scale(0.98); }
+.pd-cart-btn.added {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+.pd-cart-btn.added::before { display: none; }
+
 /* ─── Trust Badges ─── */
 .pd-trust-row {
   display: flex;
