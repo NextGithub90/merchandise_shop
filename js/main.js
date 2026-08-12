@@ -266,10 +266,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     searchResults.innerHTML = '<p class="search-hint">Hasil pencarian (' + items.length + ')</p>' +
       items.slice(0, 8).map(p => {
-        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.png';
+        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.webp';
         const price = p.salePrice ? formatRp(p.salePrice) : (p.price ? formatRp(p.price) : '');
         return '<a class="search-result-item" href="product.html?id=' + p.id + '">' +
-          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.png\'">' +
+          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.webp\'">' +
           '<div class="search-result-info">' +
             '<p class="search-result-name">' + hl(p.name) + '</p>' +
             '<p class="search-result-meta">' + (p.brand || '') + (p.category ? ' · ' + p.category : '') + '</p>' +
@@ -287,10 +287,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const popular = PRODUCT_DB.slice(0, 5);
     searchResults.innerHTML = '<p class="search-hint">Produk populer</p>' +
       popular.map(p => {
-        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.png';
+        const img = (p.images && p.images[0]) ? p.images[0] : 'assets/images/prod_figure.webp';
         const price = p.salePrice ? formatRp(p.salePrice) : (p.price ? formatRp(p.price) : '');
         return '<a class="search-result-item" href="product.html?id=' + p.id + '">' +
-          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.png\'">' +
+          '<img class="search-result-img" src="' + img + '" alt="' + p.name + '" onerror="this.src=\'assets/images/prod_figure.webp\'">' +
           '<div class="search-result-info">' +
             '<p class="search-result-name">' + p.name + '</p>' +
             '<p class="search-result-meta">' + (p.brand || '') + '</p>' +
