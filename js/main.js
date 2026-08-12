@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── SEARCH OVERLAY ───
-  const searchBtn     = document.getElementById('searchBtn');
+  const searchBtns    = document.querySelectorAll('.search-btn');
   const searchOverlay = document.getElementById('searchOverlay');
   const searchInput   = document.getElementById('searchInputField');
   const searchResults = document.getElementById('searchResults');
@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openSearch() {
     if (!searchOverlay) return;
+    if (typeof closeMenu === 'function') closeMenu();
     searchOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     setTimeout(() => searchInput && searchInput.focus(), 80);
@@ -239,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDefaultResults();
   }
 
-  if (searchBtn)   searchBtn.addEventListener('click', openSearch);
+  searchBtns.forEach(btn => btn.addEventListener('click', openSearch));
   if (searchClose) searchClose.addEventListener('click', closeSearch);
   if (searchOverlay) {
     searchOverlay.addEventListener('click', (e) => {

@@ -1033,6 +1033,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (max-width: 768px) {
+  .nav-right .search-btn { display: none; }
+  .mobile-search-btn { margin-bottom: 15px; width: 100%; justify-content: center; background: var(--bg-secondary); padding: 12px; border-radius: 8px; font-size: 15px; }
+  .mobile-search-btn:hover { background: var(--border); }
   .floating-wa { bottom: 20px; right: 20px; width: 52px; height: 52px; }
   .floating-wa svg { width: 30px; height: 30px; }
 }

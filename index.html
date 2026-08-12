@@ -25,7 +25,7 @@
   <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Navigation Menu"></div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
     <div class="mobile-menu-header">
-      <div class="mobile-menu-logo">WOTAKU <span class="red">MART</span></div>
+      <div class="mobile-menu-logo">WOTAKU <span class="red">SHOP</span></div>
       <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M6 18L18 6M6 6l12 12" />
@@ -33,6 +33,13 @@
       </button>
     </div>
     <div class="mobile-nav-links">
+      <button class="search-btn mobile-search-btn" aria-label="Cari produk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M16.5 16.5l4 4" />
+        </svg>
+        <span class="search-label">Cari Produk</span>
+      </button>
       <a href="index.html" class="mobile-logo-link">
         <img src="assets/images/logo_wotaku.webp" alt="Wotaku Shop" class="mobile-brand-logo" />
         <span class="nav-jp">ウォタクショップ</span>
@@ -76,7 +83,7 @@
       <!-- Nav Left: Logo + Store logos -->
       <div class="nav-left">
         <a href="#" class="nav-logo" aria-label="WOTAKU SHOP Home">
-          <div class="logo-brand">WOTAKU <span class="red">MART</span></div>
+          <div class="logo-brand">WOTAKU <span class="red">SHOP</span></div>
           <div class="logo-jp">ウォタクショップ</div>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
@@ -94,7 +101,11 @@
 
       <!-- Nav Right: Cart + Hamburger -->
       <div class="nav-right">
-        <button class="search-btn" id="searchBtn" aria-label="Cari produk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg><span class="search-label">Cari</span></button>
+        <button class="search-btn" id="searchBtn" aria-label="Cari produk"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M16.5 16.5l4 4" />
+          </svg><span class="search-label">Cari</span></button>
         <button class="nav-icon-btn" aria-label="Shopping cart, 0 items" id="cartBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -227,7 +238,8 @@
           <div class="panel-tags">
             <span class="panel-tag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </svg>
               Girls
             </span>
@@ -884,16 +896,23 @@
   <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Cari produk">
     <div class="search-box">
       <div class="search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4"/></svg>
-        <input class="search-input-field" id="searchInputField" type="text" placeholder="Cari produk, brand, kategori..." autocomplete="off" />
-        <button class="search-close-btn" id="searchCloseBtn" aria-label="Tutup pencarian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 18L18 6M6 6l12 12"/></svg></button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M16.5 16.5l4 4" />
+        </svg>
+        <input class="search-input-field" id="searchInputField" type="text"
+          placeholder="Cari produk, brand, kategori..." autocomplete="off" />
+        <button class="search-close-btn" id="searchCloseBtn" aria-label="Tutup pencarian"><svg viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg></button>
       </div>
       <div class="search-results" id="searchResults">
         <p class="search-hint">Produk populer</p>
       </div>
     </div>
   </div>
-    <script src="js/cart.js"></script>
+  <script src="js/cart.js"></script>
   <script src="js/product-data.js"></script>
   <script src="js/main.js"></script>
   <script>
@@ -916,5 +935,3 @@
 </body>
 
 </html>
-
-
